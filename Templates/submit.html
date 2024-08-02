@@ -1,0 +1,19 @@
+{% extends 'template.html' %}
+
+{% block content %}
+<p>This is dice</p>
+<ul>
+    {% for num_sides, roll in dice_arr %}
+        <p>The d{{ num_sides }} has rolled {{ roll }}<p>
+    {% endfor %}
+</ul>
+
+
+<a href="/">
+    <img src="{{ url_for('static', filename='back.png') }}" alt="Back" width="50" height="50">
+</a>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'template.html' %}
+
+{% block title %}Dice Roller Submission{% endblock %}
+
+{% block content %}
+<form id="inputForm" action="/submit" method="post">
+    <button type="button" id="addInputButton">Add Dice</button>
+    <div id="inputContainer"></div>
+    <button type="submit">Submit</button>
+</form>
+
+
+<form id="saveForm" action="/save" method="post" style="display: none;">
+    <input type="hidden" name="dice_results" id="dice_results" value="{{ dice_results }}">
+    <input type="hidden" name="filename" id="filename">
+</form>
+
+<button id="saveButton">Save Preset</button>
+
+
+{% endblock %}
+
+{% block scripts %}
+    document.getElementById('addInputButton').addEventListener('click', function() {
+        var inputContainer = document.getElementById('inputContainer');
+        var newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.name = 'dice';
+        newInput.className = 'inputField';
+        newInput.placeholder = 'Example: 4d6';
+        inputContainer.appendChild(newInput);
+    });
+
+    document.getElementById('saveButton').addEventListener('click', function() {
+        var filename = prompt("Please enter a filename:", "dice_results.txt");
+        if (filename) {
+            document.getElementById('filename').value = filename;
+            document.getElementById('saveForm').submit();
+        }
+    });
+{% endblock %}
+

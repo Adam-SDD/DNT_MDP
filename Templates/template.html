@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DnD Dice Roller{% endblock %}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Almendra+SC:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+        body {
+            font-family: 'MedievalSharp', cursive;
+            background-color: #2e2e2e;
+            color: #e2c08d;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4b2e83;
+            color: #e2c08d;
+            padding: 15px 0;
+            text-align: center;
+            font-family: 'Almendra SC', serif;
+            font-size: 2.5em;
+            border-bottom: 2px solid #e2c08d;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        #inputContainer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .inputField {
+            display: block;
+            margin: 10px auto;
+            width: 80%;
+            max-width: 300px;
+            padding: 10px;
+            border: 2px solid #e2c08d;
+            background-color: #4b2e83;
+            color: #e2c08d;
+            font-family: 'MedievalSharp', cursive;
+        }
+        button {
+            background-color: #4b2e83;
+            color: #e2c08d;
+            border: 2px solid #e2c08d;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'MedievalSharp', cursive;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #6a3f99;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        D&D Dice Roller
+    </header>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script>
+        // place holder for js
+        {% block scripts %}{% endblock %}
+    </script>
+</body>
+</html>
+
