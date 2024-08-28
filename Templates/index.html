@@ -17,6 +17,14 @@
 
 <button id="saveButton">Save Preset</button>
 
+<div class="dropdown">
+    <button class="dropbtn">Select Preset</button>
+    <div class="dropdown-content">
+    {% for file, name in combined %}
+        <a href="{{ url_for('load_preset', filename=file) }}">{{ name }}</a>
+    {% endfor %}
+    </div>
+  </div>
 
 {% endblock %}
 
@@ -32,10 +40,11 @@
     });
 
     document.getElementById('saveButton').addEventListener('click', function() {
-        var filename = prompt("Please enter a filename:", "dice_results.txt");
+        var filename = prompt("Please enter a filename:", "example_preset");
         if (filename) {
             document.getElementById('filename').value = filename;
             document.getElementById('saveForm').submit();
+            document.getElementById('dice_results').value = dice_results;
         }
     });
 {% endblock %}

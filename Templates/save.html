@@ -1,0 +1,13 @@
+{% extends 'template.html' %}
+
+{% block content %}
+
+<p>Well done adventurer, you have successfully saved {{filename}}.</p>
+
+<a href="/">
+    <img src="{{ url_for('static', filename='back.png') }}" alt="Back" width="50" height="50">
+</a>
+
+
+
+{% endblock %}
